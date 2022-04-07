@@ -11,11 +11,10 @@ class DonationController extends Controller
         return view('home');
     }
 
-    public function createdonor()
-    {
+    public function createdonor(){
+        return view('donors');
+    }
 
-                       return view('donors');
-          }
     public function storedonor( request $data){
       $data->validate([
           'donor_name'=>'required',
@@ -25,10 +24,7 @@ class DonationController extends Controller
       ]);
 
         $input = $data->all();
-
-
-
-        donation::create($input);
+        Donation::create($input);
     }
 
 
