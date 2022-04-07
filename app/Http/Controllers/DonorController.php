@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class donorscontroller extends Controller
+class DonorController extends Controller
 {
     public function create(){
         //return a view

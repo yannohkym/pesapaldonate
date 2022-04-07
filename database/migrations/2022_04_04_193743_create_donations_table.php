@@ -17,7 +17,8 @@ class CreateDonationsTable extends Migration
             $table->id();
             $table->string('donors_name');
             $table->string('donors_email');
-            $table->decimal('amount',9,3);
+            $table->string('donor_phone_number');
+            $table->float('amount',9,3);
             $table->enum('period_of_payment', ['monthly', 'annually','once']);
             $table->timestamps();
         });
