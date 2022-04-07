@@ -16,10 +16,10 @@
       <div class="col-md-6">
           <br>
           <br>
-          <form method="POST" action="{{}}">
+          <form method="post" action="{{ route('new_donation') }}">
               <div class="form-group">
                   <label for="name">Your Name</label>
-                  <input type="text" class="form-control" required aria-describedby="emailHelp" placeholder="Enter your name">
+                  <input type="text" name="name" class="form-control" required aria-describedby="emailHelp" placeholder="Enter your name">
                   <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
               </div>
               <div class="form-group">
@@ -45,6 +45,7 @@
                       <option value="yearly">Yearly</option>
                   </select>
               </div>
+              <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
               <div class="form-group">
                   <br>
                   <button type="submit" class="btn btn-primary form-control">Proceed to the payments page</button>

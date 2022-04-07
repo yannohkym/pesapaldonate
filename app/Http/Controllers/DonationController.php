@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\donation;
+use App\Models\Donation;
+use App\Models\Donor;
 use Illuminate\Http\Request;
+use Validator;
 
 class DonationController extends Controller
 {
@@ -11,20 +13,39 @@ class DonationController extends Controller
         return view('home');
     }
 
-    public function createdonor(){
-        return view('donors');
-    }
 
-    public function storedonor( request $data){
-      $data->validate([
-          'donor_name'=>'required',
-          'donors_email'=>'required|email',
-          'amount'=>'required',
-          'period_of_payment'=>'required'
-      ]);
+    public function new( Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'amount' => 'required|integer',
+            'schedule' => 'required'
+        ]);
 
-        $input = $data->all();
-        Donation::create($input);
+        if ($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+
+        $donation = new Donation();
+        $donation->donors_name = $request->input('name');
+        $donation->donors_email = $request->input('email');
+        $donation->amount = (float)$request->input('amount');
+        $donation->period_of_payment = $request->input('schedule');
+        $donation->donor_phone_number = $request->input('phone');
+
+        if($donation->save()){
+            //create a donor from request data.
+            //TODO add donor amount column
+            $donor = new Donor();
+            $donor->name = $request->input('name');
+            $donor->email = $request->input('email');
+            $donor->payment_interval = $request->input('schedule');
+            $donor->phone_number = $request->input('phone');
+            $donor->save();
+        }
+        //redirect to pesapal
+
     }
 
 

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Donor extends Model
 {
     use HasFactory;
-    public $fillable= ['name','email','phone','amount','donationschedule'];
+    public $fillable= ['name','email','phone_number','amount','payment_interval'];
 }
