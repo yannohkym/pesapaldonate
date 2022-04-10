@@ -4,18 +4,25 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <br>
-            <br>
-            <h1>Welcome to the Doners Huddle</h1>
-            <h3>We receive donations from our esteemed club members to cater for the various causes.</h3>
-            <h5>We provide a flexible donation schedule backed by a wide range of payment methods such as M-PESA, Electronic Cards, EquitelMoney, Bank Transfer and others. </h5>
+            <div class="card ">
+                <div class="">
+                    <img src="/images/global.jpg" class="card-img-top"   height="380px" alt="..." >
+                </div>
 
-            <h5> Please fill in your details to proceed to the donation Payment page</h5>
+                <div class="card-body bg-dark text-white">
+                    <h4 class="card-title">Welcome to donors huddle</h4>
+                    <p class="card-text">We receive donations from our We provide a flexible donation schedule backed by a wide range of payment methods such as
+                        <b> M-PESA, Electronic Cards, EquitelMoney, Bank Transfer and others.  to</b>
+                    </p>
 
+                </div>
+            </div>
         </div>
+
       <div class="col-md-6">
           <br>
           <br>
+          <h3>Please fill your details here</h3>
           <form method="post" action="{{ route('new_donation') }}">
               <div class="form-group">
                   <label for="name">Your Name</label>
@@ -42,7 +49,7 @@
                   <select class="form-select" name="schedule" id="">
                       <option value="once">One Time</option>
                       <option value="monthly">Monthly</option>
-                      <option value="yearly">Yearly</option>
+                      <option value="annually">annually</option>
                   </select>
               </div>
               <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
@@ -55,4 +62,5 @@
       </div>
     </div>
 </div>
+
 @endsection

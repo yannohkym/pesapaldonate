@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css1/style.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -32,13 +33,16 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
 
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
-                </div>
+                    <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item">
+                            <a href="{{route('login')}}" class="nav-link"> Admin Login</a>
+                        </li>
 
+                    </ul>
+                </div>
             </div>
         </nav>
 
