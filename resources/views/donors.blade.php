@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">my donors</div>
+                    <div class="card-header">My donors</div>
 
                     <div class="card-body">
                         <div class="table-responsive">
@@ -13,8 +13,8 @@
                                 <thead>
 
                                 <tr>
-                                    <th>donors_name</th>
-                                    <th>donors_email</th>
+                                    <th>Donors_name</th>
+                                    <th>Donors_email</th>
 
                                 </tr>
                                 </thead>
