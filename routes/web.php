@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/dash', function () {
-    return view('admin_dash');
-});
+
 Route::get('/admin', function () {
     return view('admin_login');
+});
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/Admins',[App\Http\Controllers\DonationController::class,'adminView'])->name('adminsOnly');
 });
 
 
@@ -30,6 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/donation/new', [App\Http\Controllers\DonationController::class, 'new'])->name('new_donation');
 Route::get('/donation/show',[App\Http\Controllers\DonationController::class,'show'])->name('show');
 Route::get('/donation/donors',[App\Http\Controllers\DonationController::class,'getdonor'])->name('getdonor');
+
+
+
 
 
 

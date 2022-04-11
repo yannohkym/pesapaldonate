@@ -48,16 +48,14 @@ class DonationController extends Controller
 
     }
     public function show(){
-
         $donation=Donation::all();
         return view('show',compact('donation'));
-
-
-
     }
     public function getDonor(){
         $donor=Donor::all();
         return view('donors',compact('donor'));
     }
-
+    public function adminView(){
+        return view('admin_dash');
+    }
 }

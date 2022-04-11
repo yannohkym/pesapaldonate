@@ -7,7 +7,7 @@
             <li class="nav-item"> <a href="#" class="nav-link active" aria-current="page"> <i class="fa fa-home"></i><span class="ms-2">Donate huddles</span> </a> </li>
             <li> <a href="#" class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2">Dashboard</span> </a> </li>
             <li>  <a href="{{route('show')}}" >  <span class="ms-2">Donations</span> </a> </li>
-            <li>  <a href="{{route('getdonor')}}" > <span class="ms-2">Donors</span> </a> </li>
+            <li>  <a href="{{route('show')}}" > <span class="ms-2">Donors</span> </a> </li>
 
             <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">notifications</span> </a> </li>
         </ul>
