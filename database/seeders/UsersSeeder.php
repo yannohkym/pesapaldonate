@@ -20,19 +20,17 @@ class UsersSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'password' => '123456',
-                'is_admin' => '1',
+                'user_role' => 'admin'
             ],
             [
                 'name' => 'user',
                 'email' => 'user@gmail.com',
                 'password' => '13456',
-                'is_admin' => null,
             ],
             [
                 'name' => 'Client',
                 'email' => 'client@gmail.com',
                 'password' => '13456',
-                'is_admin' => null,
             ]
         ];
 
@@ -41,7 +39,8 @@ class UsersSeeder extends Seeder
             User::create([
                 'name' => $user['name'],
                 'email' => $user['email'],
-                'password' => Hash::make($user['password'])
+                'password' => Hash::make($user['password']),
+                'user_role' => isset($user['user_role'])? $user['user_role'] : null,
             ]);
         }
 

@@ -7,13 +7,13 @@
             <div class="col-md-6">
                 <div class="card ">
                     <div class="">
-                        <img src="/images/global.jpg" class="card-img-top"   height="380px" alt="..." >
+                        <img src="{{asset('/images/donors.png')}}" class="card-img-top"   alt="..." >
                     </div>
 
-                    <div class="card-body bg-dark text-white">
+                    <div class="card-body">
                         <h4 class="card-title">Welcome to donors huddle</h4>
-                        <p class="card-text">We receive donations from our We provide a flexible donation schedule backed by a wide range of payment methods such as
-                            <b> M-PESA, Electronic Cards, EquitelMoney, Bank Transfer and others.  to</b>
+                        <p class="card-text">We receive donations from our esteemed members of our Donations Club. We provide a flexible donation schedule backed by a wide range of payment methods such as
+                            <b> M-PESA, Electronic Cards, EquitelMoney, Bank Transfer and others.  To Donate, please fill in your details to proceed to the donations payment page.</b>
                         </p>
 
                     </div>
@@ -56,7 +56,7 @@
                     <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                     <div class="form-group">
                         <br>
-                        <button type="submit" class="btn btn-primary form-control">Proceed to the payments page</button>
+                        <button type="submit" class="btn btn-primary form-control" style="background-color: #1c96e0; border-color: #1c96e0">Proceed to the payments page</button>
                     </div>
 
                 </form>
