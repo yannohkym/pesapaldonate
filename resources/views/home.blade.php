@@ -23,7 +23,7 @@
             <div class="col-md-6">
                 <br>
                 <br>
-                <h3>Please fill your details here</h3>
+                <h3>Please fill your in details here</h3>
                 <form method="post" action="{{ route('new_donation') }}">
                     <div class="form-group">
                         <label for="name">Your Name</label>
