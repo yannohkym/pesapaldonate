@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Donor;
 use Illuminate\Console\Command;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class SendReminders extends Command
 {
@@ -41,17 +42,18 @@ class SendReminders extends Command
     {
         $donors = Donor::all();
         foreach ($donors as $donor){
-            $today = Carbon::today();
+            $today = Carbon::today()->toDateString();
             if($donor->payment_interval === 'monthly'){
-                $last_day_of_the_month = Carbon::today()->startOfMonth()->toDateString();
-                if($last_day_of_the_month === $today){
-                    //send email
+                $first_day_of_the_month = Carbon::today()->startOfMonth()->toDateString();
+                if($first_day_of_the_month == $today){
+                    Mail::to($donor->email)->send(new \App\Mail\SendReminders());
                 }
 
             }elseif ($donor->payment_interval === 'annually'){
-                $end_of_year = Carbon::today();
-                if($today === $end_of_year){
-                    //send reminder
+                $leo = Carbon::today();
+                $end_of_year = $leo->copy()->endOfYear();
+                if($end_of_year == $today){
+                    Mail::to($donor->email)->send(new \App\Mail\SendReminders());
                 }
 
             }
