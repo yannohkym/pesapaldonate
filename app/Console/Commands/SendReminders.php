@@ -46,14 +46,14 @@ class SendReminders extends Command
             if($donor->payment_interval === 'monthly'){
                 $first_day_of_the_month = Carbon::today()->startOfMonth()->toDateString();
                 if($first_day_of_the_month == $today){
-                    Mail::to($donor->email)->send(new \App\Mail\SendReminders());
+                    Mail::to($donor->email)->send(new \App\Mail\SendReminders($donor));
                 }
 
             }elseif ($donor->payment_interval === 'annually'){
                 $leo = Carbon::today();
                 $end_of_year = $leo->copy()->endOfYear();
                 if($end_of_year == $today){
-                    Mail::to($donor->email)->send(new \App\Mail\SendReminders());
+                    Mail::to($donor->email)->send(new \App\Mail\SendReminders($donor));
                 }
 
             }

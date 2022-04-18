@@ -4,6 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+
             <div class="col-md-6">
                 <div class="card ">
                     <div class="">
@@ -23,6 +24,11 @@
             <div class="col-md-6">
                 <br>
                 <br>
+                @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                   {{$errors}}
+                </div>
+                @endif
                 <h3>Please fill your in details here</h3>
                 <form method="post" action="{{ route('new_donation') }}">
                     <div class="form-group">

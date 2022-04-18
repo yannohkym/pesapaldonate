@@ -80,7 +80,8 @@
                             <li> <a href="{{route('admin_index')}}" class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2">Dashboard</span> </a> </li>
                             <li> <a href="{{route('admin_donors')}}" class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2">Donors</span> </a> </li>
                             <li> <a href="{{route('admin_users')}}" class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2">Users</span> </a> </li>
-                            <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Notifications</span> </a> </li>
+                            <li> <a href="{{route('admin_notifications')}}" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Notifications</span> </a> </li>
+                            <li> <a href="{{route('configuration')}}" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Configuration</span> </a> </li>
                         </ul>
                     </div>
                 </div>
