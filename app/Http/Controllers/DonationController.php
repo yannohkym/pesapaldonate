@@ -122,13 +122,14 @@ class DonationController extends Controller
 
     public function callback($donation_id)
     {
+        $config = Config::first();
+        $consumer_key = $config->consumer_key;
+        $consumer_secret = $config->consumer_secret;
         $donation = Donation::where('id',$donation_id)->first();
         $statusrequestAPI = 'https://www.pesapal.com/api/querypaymentstatus';
-        $consumer_key = $this->consumer_key;//Register a merchant account on
         //demo.pesapal.com and use the merchant key for testing.
         //When you are ready to go live make sure you change the key to the live account
         //registered on www.pesapal.com!
-        $consumer_secret = $this->consumer_secret;
         $signature_method = new OAuthSignatureMethod_HMAC_SHA1();
         $pesapalTrackingId=$_GET['pesapal_transaction_tracking_id'];
         $pesapal_merchant_reference=$_GET['pesapal_merchant_reference'];
