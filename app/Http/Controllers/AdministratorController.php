@@ -17,12 +17,32 @@ class AdministratorController extends Controller
 
     public function index()
     {
-        $donations = Donation::all();
+        //$donations = Donation::all();
+        $donations = Donation::orderBy('created_at', 'desc')->get();
         $donors = Donor::all();
+          // Get the total amount of all donations
+        $totalDonations = \DB::table('donations')->sum('amount');
+
+        // Get the total number of unique donors
+        $totalDonors = \DB::table('donations')->distinct('donors_email')->count('donors_email');
+
+        // Get the total number of successful donations
+        $successfulDonations = \DB::table('donations')->where('status', 'paid')->count();
+
+        // Get the total number of pending donations
+        $pendingDonations = \DB::table('donations')->where('status', 'pending')->count();
+
+        // Get all donations for the table
+        $donationsall = \DB::table('donations')->get();
         return view('admin.index',
             [
                 'donations' => $donations,
-                'donors' => $donors
+                'donors' => $donors,
+                'totalDonations' => $totalDonations,
+                'totalDonors'=> $totalDonors, 
+                'successfulDonations'=>$successfulDonations, 
+                'pendingDonations'=>$pendingDonations, 
+                'donationsall'=>$donationsall
             ]
         );
     }

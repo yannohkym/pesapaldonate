@@ -1,1 +1,44 @@
 
+/* Sidebar Styling */
+.bg-dark {
+    background-color: #0056b3 !important; /* Dark blue for sidebar */
+}
+
+.nav-link {
+    color: white !important;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #004080; /* Lighter blue on hover */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #007bff !important; /* Blue Navbar */
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+/* Table Styling */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue for striped rows */
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.2); /* Hover effect for rows */
+}
+
+/* Card Styling */
+.card {
+    border-radius: 10px;
+    border: none;
+}
+.custom-bg-navy {
+    background-color: #001F3F; /* Navy blue */
+}
+a {
+    color: #001F3F;
+}
